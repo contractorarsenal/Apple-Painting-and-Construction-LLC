@@ -1,1 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apple Painting & Construction LLC | Woodburn, OR</title>
+<meta name="description" content="Woodburn's trusted painting and construction experts. 20+ years of craftsmanship, 5.0 Google stars. Residential & commercial. Call Marco Antonio at (971) 455-8005."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0f1208;--ink2:#161a09;--forest:#1a2610;--moss:#2d3d1a;
+  --sage:#4a6635;--sage-lt:#6a8f4a;
+  --apple:#c94c1a;--apple-lt:#e8622a;--apple-dk:#8a2e08;
+  --cream:#f5f0e6;--cream2:#ede6d5;--warm:#d4c9a8;
+  --white:#fff;--off:#faf8f3;
+  --text:#1e2410;--muted:#5a6245;--silver:#8a9270;
+  --tr:.26s ease;--r:12px;--r-sm:8px;--r-lg:18px;--r-xl:28px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;height:auto;}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 28px;}
 
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:14px 28px;cursor:pointer;transition:all var(--tr);white-space:nowrap;border:none;text-decoration:none;border-radius:0 var(--r-lg) 0 var(--r-lg);}
+.btn-apple{background:var(--apple);color:#fff;}
+.btn-apple:hover{background:var(--apple-lt);transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,76,26,.35);}
+.btn-outline-c{background:transparent;border:2px solid rgba(255,255,255,.35);color:#fff;}
+.btn-outline-c:hover{background:rgba(255,255,255,.1);transform:translateY(-1px);}
+.btn-outline-d{background:transparent;border:2px solid var(--apple);color:var(--apple);}
+.btn-outline-d:hover{background:var(--apple);color:#fff;}
+.btn-full{width:100%;justify-content:center;}
+.btn-lg{padding:17px 36px;font-size:.84rem;}
+
+/* DEMO BADGE */
+.demo-badge{position:fixed;bottom:80px;right:0;z-index:9999;background:#dc2626;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px 7px 10px;border-radius:8px 0 0 8px;box-shadow:-2px 2px 12px rgba(220,38,38,.4);}
+
+/* ANNOUNCE */
+.announce{background:var(--forest);padding:9px 20px;text-align:center;}
+.announce p{font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.42);}
+.announce p span{color:var(--apple-lt);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:var(--ink);border-bottom:3px solid var(--apple);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 28px;max-width:1180px;margin:0 auto;}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-logo{width:44px;height:44px;background:var(--apple);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:0 var(--r-sm) 0 var(--r-sm);}
+.nav-logo svg{color:#fff;}
+.nav-brand-wrap{line-height:1.15;}
+.nav-brand-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.02em;}
+.nav-brand-sub{font-family:'Barlow Condensed',sans-serif;font-size:.46rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.36);transition:color var(--tr);cursor:pointer;}
+.nav-links a:hover{color:var(--apple-lt);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.6);border-radius:2px;transition:var(--tr);}
+.drawer{display:none;position:fixed;inset:0;background:var(--ink2);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;}
+.drawer.open{display:flex;}
+.drawer-close{position:absolute;top:22px;right:22px;background:none;border:none;font-size:2rem;cursor:pointer;color:rgba(255,255,255,.4);}
+.drawer a{font-family:'Playfair Display',serif;font-size:2.6rem;color:rgba(255,255,255,.7);cursor:pointer;}
+.drawer a:hover{color:var(--apple-lt);}
+
+/* HERO */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--forest);}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(10,14,5,.93) 0%,rgba(10,14,5,.75) 55%,rgba(10,14,5,.35) 100%);}
+.hero-texture{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='80' height='80' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");pointer-events:none;}
+.hero-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--apple) 0%,var(--sage) 60%,transparent 100%);z-index:3;}
+.hero-inner{position:relative;z-index:4;width:100%;padding:120px 28px 80px;max-width:1180px;margin:0 auto;}
+.hero-grid{display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center;}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,76,26,.15);border:1.5px solid rgba(201,76,26,.3);padding:6px 14px;margin-bottom:22px;border-radius:var(--r-sm);}
+.hero-badge-stars{color:var(--apple-lt);letter-spacing:3px;font-size:.9rem;}
+.hero-badge span{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.hero-line{width:32px;height:2px;background:var(--apple);border-radius:2px;}
+.hero-eyebrow span{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,7.5vw,8rem);line-height:.9;font-weight:900;color:#fff;margin-bottom:10px;letter-spacing:-.01em;}
+h1.hero-title .ac{color:var(--apple-lt);}
+h1.hero-title .ag{color:#8dc46a;}
+.hero-loc{font-size:.88rem;font-style:italic;color:rgba(255,255,255,.28);margin-bottom:22px;letter-spacing:.05em;}
+.hero-sub{font-size:.97rem;font-weight:300;color:rgba(255,255,255,.55);max-width:520px;line-height:1.9;margin-bottom:30px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.htbar{display:flex;align-items:center;gap:18px;padding:14px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--apple);flex-wrap:wrap;border-radius:0 var(--r-sm) var(--r-sm) 0;}
+.htbar-item{display:flex;align-items:center;gap:7px;font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.45);white-space:nowrap;}
+.htbar-div{width:1px;height:14px;background:rgba(255,255,255,.12);}
+
+/* QUOTE CARD */
+.hqcard{background:var(--ink2);border-top:4px solid var(--apple);border-radius:var(--r-xl);overflow:hidden;box-shadow:0 28px 64px rgba(0,0,0,.55);}
+.hqcard-head{background:linear-gradient(135deg,var(--apple-dk),var(--apple));padding:22px 24px;}
+.hqcard-head h3{font-family:'Barlow Condensed',sans-serif;font-size:.96rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#fff;}
+.hqcard-head p{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:3px;}
+.hqcard-body{padding:22px 24px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
+.fg label{font-family:'Barlow Condensed',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.26);}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;width:100%;outline:none;-webkit-appearance:none;transition:border-color var(--tr);border-radius:var(--r-sm);}
+.fg input::placeholder{color:rgba(255,255,255,.16);}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--apple);}
+.fg select option{background:#0f1208;color:#fff;}
+.hqcard-note{text-align:center;margin-top:10px;font-size:.58rem;color:rgba(255,255,255,.15);}
+.success-msg{display:none;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;color:#8dc46a;letter-spacing:.06em;text-align:center;}
+
+/* WAVE */
+.wave-bottom{position:absolute;bottom:-2px;left:0;right:0;z-index:5;pointer-events:none;}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--apple);overflow:hidden;padding:12px 0;}
+.marquee-track{display:flex;width:max-content;animation:marquee 36s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-item{display:inline-flex;align-items:center;gap:16px;padding:0 24px;white-space:nowrap;}
+.marquee-text{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+.mbl{color:rgba(255,255,255,.35);font-size:.7rem;}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--forest);padding:26px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;}
+.t-item{display:flex;align-items:center;gap:10px;}
+.t-icon{width:32px;height:32px;background:rgba(201,76,26,.15);display:flex;align-items:center;justify-content:center;color:var(--apple-lt);flex-shrink:0;border-radius:8px;}
+.t-text{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.t-div{width:1px;height:22px;background:rgba(255,255,255,.08);}
+
+/* SECTIONS */
+.sec{padding:96px 0;}
+.sec-off{background:var(--off);}
+.sec-cream{background:var(--cream);}
+.sec-cream2{background:var(--cream2);}
+.sec-dark{background:var(--ink);}
+.sec-forest{background:var(--forest);}
+.sec-white{background:#fff;}
+
+.section-head{text-align:center;margin-bottom:60px;}
+.lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--apple-dk);display:block;margin-bottom:10px;}
+.lbl-w{color:rgba(255,255,255,.5);}
+.lbl-c{color:var(--apple);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,4.8rem);line-height:.92;font-weight:900;color:var(--ink);letter-spacing:-.01em;}
+.sec-title .ac{color:var(--apple);}
+.sec-title .ag{color:var(--sage);}
+.sec-title-w{color:#fff;}
+.sec-sub{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:560px;margin:16px auto 0;}
+
+/* EXPERTISE */
+.expertise-strip{background:var(--ink2);padding:56px 0;}
+.expertise-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.exp-block{background:var(--forest);padding:26px 22px;border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.05);transition:all var(--tr);}
+.exp-block:hover{transform:translateY(-5px);border-color:rgba(201,76,26,.3);box-shadow:0 18px 44px rgba(0,0,0,.5);}
+.exp-icon{width:42px;height:42px;background:rgba(201,76,26,.12);display:flex;align-items:center;justify-content:center;color:var(--apple-lt);margin-bottom:15px;border-radius:0 var(--r-sm) 0 var(--r-sm);}
+.exp-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:7px;}
+.exp-desc{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.65;}
+
+/* OFFERS */
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.offer-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;border:1.5px solid var(--warm);transition:all var(--tr);box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.offer-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.12);}
+.offer-tag{background:var(--apple);color:#fff;padding:20px 22px 16px;position:relative;}
+.offer-tag::after{content:'';position:absolute;bottom:-13px;left:0;right:0;height:13px;background:var(--apple);clip-path:ellipse(50% 100% at 50% 0%);}
+.offer-save{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1;display:block;font-style:italic;color:#fff;}
+.offer-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:2px;display:block;}
+.offer-body{padding:24px 22px 22px;}
+.offer-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:12px;}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.offer-list li{display:flex;align-items:flex-start;gap:9px;font-size:.84rem;color:var(--muted);line-height:1.52;}
+.offer-list li::before{content:'✓';color:var(--apple);font-weight:700;flex-shrink:0;margin-top:1px;}
+.offer-cta{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);border-top:1px solid var(--cream2);padding-top:12px;margin-top:4px;}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.svc-card{position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--ink);border-radius:var(--r-xl);}
+.svc-card.featured{grid-column:span 3;min-height:420px;}
+.svc-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s ease;}
+.svc-card:hover .svc-img{transform:scale(1.06);}
+.svc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,5,.97) 0%,rgba(10,14,5,.45) 55%,transparent 100%);}
+.svc-tag{position:absolute;top:16px;left:16px;z-index:3;background:var(--apple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:0 var(--r-sm) 0 var(--r-sm);}
+.svc-content{position:relative;z-index:2;padding:24px;}
+.svc-num{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.3em;color:var(--apple-lt);margin-bottom:4px;opacity:.4;}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:7px;font-weight:700;}
+.svc-card.featured .svc-name{font-size:2.6rem;}
+.svc-desc{font-size:.82rem;font-weight:300;color:rgba(255,255,255,.5);line-height:1.66;margin-bottom:12px;}
+.svc-link{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--apple-lt);cursor:pointer;background:none;border:none;padding:0;}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.review-card{background:#fff;border:1.5px solid var(--warm);border-top:3px solid var(--apple);padding:24px 22px;border-radius:var(--r-xl);transition:transform var(--tr);box-shadow:0 4px 16px rgba(0,0,0,.05);}
+.review-card:hover{transform:translateY(-4px);}
+.review-stars{display:flex;gap:3px;margin-bottom:11px;}
+.star{color:var(--apple);font-size:13px;}
+.review-text{font-size:.87rem;font-weight:300;color:var(--text);line-height:1.8;margin-bottom:16px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:11px;}
+.rav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:.84rem;font-weight:800;flex-shrink:0;text-transform:uppercase;}
+.rav-a{background:var(--apple);color:#fff;}
+.rav-g{background:var(--sage);color:#fff;}
+.rav-f{background:var(--forest);color:var(--apple-lt);}
+.rav-w{background:var(--warm);color:var(--ink);}
+.review-name{font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;color:var(--ink);letter-spacing:.04em;}
+.review-meta{font-size:.66rem;color:var(--muted);}
+.review-source{font-size:.58rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);}
+.rating-bar{background:var(--forest);padding:26px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:28px;border-left:4px solid var(--apple);border-radius:var(--r-xl);}
+.rating-big{font-family:'Playfair Display',serif;font-size:4rem;color:var(--apple-lt);line-height:1;font-style:italic;}
+.rating-stars-row{display:flex;gap:4px;margin-bottom:6px;}
+.rat-p{display:flex;gap:8px;flex-wrap:wrap;}
+.rat-badge{background:rgba(201,76,26,.12);border:1px solid rgba(201,76,26,.22);color:var(--apple-lt);font-family:'Barlow Condensed',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px;}
+.rat-right{margin-left:auto;background:var(--apple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:0 var(--r-sm) 0 var(--r-sm);}
+
+/* PHOTO GRID */
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.photo-tile{border-radius:var(--r-xl);overflow:hidden;position:relative;}
+.photo-tile img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .6s ease;}
+.photo-tile:hover img{transform:scale(1.07);}
+.photo-tile.tall img{height:310px;}
+.photo-tile-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,14,5,.88),transparent);padding:18px 14px 14px;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-frame{overflow:hidden;border-radius:var(--r-xl);}
+.about-img-frame img{width:100%;height:540px;object-fit:cover;display:block;}
+.about-img-accent{position:absolute;top:-18px;left:-18px;width:100%;height:100%;border:3px solid var(--apple);border-radius:var(--r-xl);z-index:-1;opacity:.25;}
+.about-badge{position:absolute;bottom:-18px;right:-18px;background:var(--apple);color:#fff;padding:22px 24px;text-align:center;z-index:2;border-radius:0 var(--r-xl) 0 var(--r-xl);}
+.about-badge span{font-family:'Playfair Display',serif;font-size:2.4rem;font-style:italic;line-height:1;display:block;}
+.about-badge small{font-family:'Barlow Condensed',sans-serif;font-size:.48rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);display:block;margin-top:3px;}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,4.2rem);line-height:.92;font-weight:900;color:var(--ink);margin-bottom:20px;letter-spacing:-.01em;}
+.about-title .ac{color:var(--apple);}
+.about-title .ag{color:var(--sage);}
+.about-body{font-size:.94rem;font-weight:300;color:var(--muted);line-height:1.88;margin-bottom:16px;}
+.about-award{display:inline-flex;align-items:center;gap:8px;background:rgba(201,76,26,.06);border:1.5px solid rgba(201,76,26,.15);padding:7px 13px;border-radius:var(--r-sm);margin:0 5px 7px 0;}
+.about-award span{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--apple);}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--cream2);border-bottom:2px solid var(--cream2);margin:26px 0;}
+.stat{text-align:center;padding:18px 8px;border-right:1px solid var(--warm);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--apple);line-height:1;display:block;font-style:italic;}
+.stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.pill{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1.5px solid var(--warm);color:var(--muted);transition:all var(--tr);border-radius:var(--r-sm);}
+.pill:hover{border-color:var(--apple);color:var(--apple);}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.value-card{background:var(--forest);padding:28px;border-radius:var(--r-xl);border:1px solid rgba(255,255,255,.05);}
+.value-card-icon{width:42px;height:42px;background:rgba(201,76,26,.12);border-radius:0 var(--r-sm) 0 var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--apple-lt);margin-bottom:14px;}
+.value-card-title{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:7px;}
+.value-card-body{font-size:.83rem;font-weight:300;color:rgba(255,255,255,.4);line-height:1.72;}
+
+/* SVC LIST */
+.svc-list-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.svc-list-item{display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-sm);transition:all var(--tr);}
+.svc-list-item:hover{background:rgba(255,255,255,.07);border-color:rgba(201,76,26,.22);transform:translateX(5px);}
+.svc-list-icon{width:34px;height:34px;background:rgba(201,76,26,.1);display:flex;align-items:center;justify-content:center;color:var(--apple-lt);flex-shrink:0;border-radius:8px;}
+.svc-list-name{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+
+/* FAQ */
+.faq-wrap{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border:1.5px solid var(--warm);border-radius:var(--r-lg);overflow:hidden;transition:border-color var(--tr);}
+.faq-item.open{border-color:var(--apple);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;gap:12px;}
+.faq-q-text{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);}
+.faq-icon{width:28px;height:28px;background:var(--cream2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);transition:all var(--tr);}
+.faq-item.open .faq-icon{background:var(--apple);color:#fff;transform:rotate(45deg);}
+.faq-a{display:none;padding:0 24px 20px;font-size:.9rem;font-weight:300;color:var(--muted);line-height:1.84;}
+.faq-item.open .faq-a{display:block;}
+
+/* SERVICE AREAS */
+.areas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;}
+.area-tag{background:#fff;border:1.5px solid var(--warm);padding:10px 14px;border-radius:var(--r-sm);font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;transition:all var(--tr);}
+.area-tag:hover{border-color:var(--apple);color:var(--apple);background:rgba(201,76,26,.03);}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.gallery-item{border-radius:var(--r-xl);overflow:hidden;position:relative;cursor:pointer;}
+.gallery-item.wide{grid-column:span 2;}
+.gallery-item img{width:100%;height:270px;object-fit:cover;display:block;transition:transform .65s ease;}
+.gallery-item.wide img{height:310px;}
+.gallery-item:hover img{transform:scale(1.05);}
+.gallery-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,5,.92) 0%,transparent 55%);opacity:0;transition:opacity var(--tr);}
+.gallery-item:hover .gallery-ov{opacity:1;}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:18px 16px 14px;transform:translateY(8px);transition:transform var(--tr);opacity:0;}
+.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0);}
+.gallery-caption h4{font-family:'Barlow Condensed',sans-serif;font-size:.84rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:2px;}
+.gallery-caption p{font-size:.7rem;color:rgba(255,255,255,.5);}
+
+/* LIGHTBOX */
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(10,14,5,.95);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+.lb-overlay.open{display:flex;}
+.lb-box{position:relative;max-width:90vw;max-height:90vh;}
+.lb-box img{display:block;max-width:88vw;max-height:82vh;object-fit:contain;border-radius:var(--r-lg);}
+.lb-info{margin-top:12px;text-align:center;}
+.lb-info h4{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;}
+.lb-info p{font-size:.76rem;color:rgba(255,255,255,.45);margin-top:3px;}
+.lb-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;background:var(--apple);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;font-weight:700;line-height:1;}
+.lb-close:hover{background:var(--apple-lt);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.contact-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,4.8rem);line-height:.9;font-weight:900;color:var(--ink);margin-bottom:20px;letter-spacing:-.01em;}
+.contact-title .ac{color:var(--apple);}
+.contact-title .ag{color:var(--sage);}
+.contact-body{font-size:.94rem;font-weight:300;color:var(--muted);line-height:1.88;margin-bottom:28px;font-style:italic;}
+.ci{display:flex;flex-direction:column;gap:11px;margin-bottom:28px;}
+.ci-row{display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1.5px solid var(--warm);border-left:4px solid var(--apple);border-radius:0 var(--r-sm) var(--r-sm) 0;}
+.ci-icon{width:32px;height:32px;background:rgba(201,76,26,.08);display:flex;align-items:center;justify-content:center;color:var(--apple);flex-shrink:0;border-radius:8px;}
+.ci-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--apple);margin-bottom:1px;}
+.ci-val{font-size:.88rem;color:var(--ink);font-weight:500;}
+.cform{background:#fff;border-top:4px solid var(--apple);box-shadow:0 10px 44px rgba(0,0,0,.09);border-radius:var(--r-xl);overflow:hidden;}
+.cform-head{background:linear-gradient(135deg,var(--apple-dk),var(--apple));padding:22px 26px;}
+.cform-head h3{font-family:'Barlow Condensed',sans-serif;font-size:.96rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#fff;}
+.cform-head p{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:3px;}
+.cform-body{padding:24px 26px;}
+.est-fg{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
+.est-fg label{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);}
+.est-fg input,.est-fg select,.est-fg textarea{background:var(--off);border:1.5px solid var(--warm);padding:11px 14px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.88rem;width:100%;outline:none;-webkit-appearance:none;transition:border-color var(--tr);border-radius:var(--r-sm);}
+.est-fg input:focus,.est-fg select:focus,.est-fg textarea:focus{border-color:var(--apple);}
+.est-fg textarea{resize:none;min-height:90px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.form-note{text-align:center;margin-top:9px;font-size:.58rem;color:var(--silver);}
+
+/* FLOAT CTA */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:500;display:none;flex-direction:column;align-items:flex-end;gap:10px;}
+.float-cta.vis{display:flex;}
+@keyframes ring-pulse{0%{transform:scale(1);opacity:.7;}70%{transform:scale(1.55);opacity:0;}100%{transform:scale(1.55);opacity:0;}}
+@keyframes float-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.float-bubble{background:#fff;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;padding:10px 16px;border-radius:16px 16px 4px 16px;box-shadow:0 6px 28px rgba(0,0,0,.16);white-space:nowrap;position:relative;transform:scale(.85) translateY(6px);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;}
+.float-bubble.show{transform:scale(1) translateY(0);opacity:1;pointer-events:auto;}
+.float-bubble::after{content:'';position:absolute;bottom:-8px;right:18px;border:5px solid transparent;border-top-color:#fff;border-bottom:none;}
+.float-bubble .bubble-dot{display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;margin-right:7px;}
+.float-btn-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;}
+.float-btn-ring{position:absolute;inset:-6px;background:var(--apple);border-radius:0 var(--r-lg) 0 var(--r-lg);opacity:.4;animation:ring-pulse 2s ease-out infinite;}
+.float-btn{display:inline-flex;align-items:center;gap:9px;background:var(--apple);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:14px 22px;border-radius:0 var(--r-lg) 0 var(--r-lg);border:none;cursor:pointer;text-decoration:none;box-shadow:0 8px 28px rgba(201,76,26,.45);animation:float-bounce 3s ease-in-out infinite;transition:transform .2s ease,box-shadow .2s ease;}
+.float-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(201,76,26,.6);}
+.float-dismiss{display:none;position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--ink);border-radius:50%;border:2px solid var(--apple);cursor:pointer;font-size:.7rem;color:rgba(255,255,255,.7);align-items:center;justify-content:center;line-height:1;}
+.float-cta.vis .float-dismiss{display:flex;}
+.float-dismiss:hover{background:#333;}
+
+/* FOOTER CTA */
+.footer-cta{background:var(--forest);padding:28px 0;border-top:4px solid var(--apple);}
+.footer-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.footer-cta-txt h4{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:#fff;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;}
+.footer-cta-txt p{font-size:.8rem;color:rgba(255,255,255,.3);}
+.footer-cta-btns{display:flex;gap:10px;flex-wrap:wrap;}
+
+footer{background:var(--ink);}
+.footer-main{padding:56px 0 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:3px;font-style:italic;}
+.footer-brand-sub{font-family:'Barlow Condensed',sans-serif;font-size:.48rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--apple-lt);margin-bottom:14px;}
+.footer-desc{font-size:.8rem;color:rgba(255,255,255,.22);line-height:1.88;max-width:250px;margin-bottom:14px;}
+.footer-col-title{font-family:'Barlow Condensed',sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--apple-lt);margin-bottom:14px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,.22);cursor:pointer;transition:color var(--tr);}
+.footer-links a:hover{color:rgba(255,255,255,.6);}
+.footer-contacts{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-contacts li{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:rgba(255,255,255,.22);line-height:1.55;}
+.footer-contacts li svg{flex-shrink:0;margin-top:2px;color:var(--apple-lt);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:20px 0;border-top:1px solid rgba(255,255,255,.05);}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.12);}
+.footer-dev{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.12);}
+.footer-dev a{color:rgba(255,255,255,.22);}
+.footer-dev a:hover{color:var(--apple-lt);}
+
+/* REVEAL */
+.reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease;}
+.js-loaded .reveal{opacity:0;transform:translateY(28px);}
+.js-loaded .reveal.in{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .expertise-grid{grid-template-columns:1fr 1fr;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .svc-card.featured{grid-column:span 2;}
+  .svc-list-grid{grid-template-columns:1fr;}
+  .reviews-grid{grid-template-columns:1fr 1fr;}
+  .about-grid{grid-template-columns:1fr;gap:56px;}
+  .contact-grid{grid-template-columns:1fr;gap:48px;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+  .footer-grid>*:first-child{grid-column:1/-1;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+  .areas-grid{grid-template-columns:repeat(4,1fr);}
+  .offers-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .gallery-item.wide{grid-column:auto;}
+  .values-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-right .btn:first-of-type{display:none;}
+  .nav-brand-sub{display:none;}
+  .hamburger{display:flex;}
+  .sec{padding:60px 0;}
+  .container{padding:0 18px;}
+  .hero-inner{padding:100px 18px 60px;}
+  h1.hero-title{font-size:clamp(2.8rem,12vw,4.2rem);}
+  .hero-btns{flex-direction:column;}
+  .hero-btns .btn{width:100%;justify-content:center;}
+  .htbar{flex-direction:column;gap:8px;}
+  .htbar-div{display:none;}
+  .expertise-grid{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr;}
+  .svc-card.featured{grid-column:auto;min-height:280px;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .about-img-frame img{height:320px;}
+  .stats-row{grid-template-columns:repeat(3,1fr);}
+  .row2{grid-template-columns:1fr;}
+  .rating-bar{flex-direction:column;align-items:flex-start;gap:12px;}
+  .rat-right{margin-left:0;}
+  .footer-cta-inner{flex-direction:column;align-items:flex-start;}
+  .footer-cta-btns{width:100%;flex-direction:column;}
+  .footer-cta-btns .btn{width:100%;justify-content:center;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-grid>*:first-child{grid-column:auto;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .about-badge{right:0;bottom:-10px;}
+  .trust-inner{flex-direction:column;gap:14px;align-items:flex-start;}
+  .t-div{display:none;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+  .areas-grid{grid-template-columns:repeat(3,1fr);}
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-item.wide{grid-column:auto;}
+  .gallery-item img,.gallery-item.wide img{height:220px;}
+}
+@media(max-width:480px){
+  .stats-row{grid-template-columns:1fr;}
+  .stat{border-right:none;border-bottom:1px solid var(--warm);}
+  .stat:last-child{border-bottom:none;}
+  .areas-grid{grid-template-columns:1fr 1fr;}
+  .photo-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-badge">Live Demo</div>
+
+<!-- FLOAT CHAT -->
+<div class="float-cta" id="floatCta">
+  <div class="float-bubble" id="floatBubble">
+    <span class="bubble-dot"></span><span id="bubbleMsg">Free painting estimates!</span>
+  </div>
+  <div class="float-btn-wrap">
+    <div class="float-btn-ring"></div>
+    <a href="#contact" class="float-btn" onclick="hideBubble()">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Get a Free Quote
+    </a>
+    <button class="float-dismiss" onclick="dismissFloat()" title="Dismiss">&times;</button>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose">&times;</button>
+  <a href="#" onclick="closeDrawer()">Home</a>
+  <a href="#services" onclick="closeDrawer()">Services</a>
+  <a href="#reviews" onclick="closeDrawer()">Reviews</a>
+  <a href="#about" onclick="closeDrawer()">About</a>
+  <a href="#areas" onclick="closeDrawer()">Areas</a>
+  <a href="#faq" onclick="closeDrawer()">FAQ</a>
+  <a href="#contact" onclick="closeDrawer()" style="color:var(--apple-lt)">Get a Quote</a>
+</div>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  <p>Woodburn, OR &nbsp;&bull;&nbsp; <span>5.0 Google Reviews</span> &nbsp;&bull;&nbsp; Residential &amp; Commercial &nbsp;&bull;&nbsp; 20+ Years Experience &nbsp;&bull;&nbsp; Licensed &amp; Insured</p>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#">
+      <div class="nav-brand">
+        <div class="nav-logo">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20h20M3 20V10l9-7 9 7v10M10 20v-6h4v6"/></svg>
+        </div>
+        <div class="nav-brand-wrap">
+          <span class="nav-brand-name">Apple Painting &amp; Construction</span>
+          <span class="nav-brand-sub">Woodburn, OR &middot; Licensed &amp; Insured &middot; Family Owned</span>
+        </div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#areas">Areas</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-apple" style="padding:8px 18px;font-size:.66rem;">Free Quote</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85" alt="Professional painting and construction work" onerror="this.parentElement.style.background='var(--forest)'"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><span class="hero-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>5.0 Google Reviews &middot; Woodburn, OR</span></div>
+        <div class="hero-eyebrow"><div class="hero-line"></div><span>Licensed &amp; Insured &middot; 20+ Years Experience</span></div>
+        <h1 class="hero-title">Apple<br><span class="ac">Painting</span><br>&amp; <span class="ag">Build</span></h1>
+        <p class="hero-loc">Painting &middot; Construction &middot; Woodburn, Oregon</p>
+        <p class="hero-sub">Marco Antonio and his team have built a trusted name in Woodburn for over 20 years. Exceptional craftsmanship, honest pricing, and results that exceed what you imagined. Residential and commercial. Done right.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-apple btn-lg">Get a Free Estimate</a>
+          <a href="#services" class="btn btn-outline-c btn-lg">See Our Services</a>
+        </div>
+        <div class="htbar">
+          <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed &amp; Insured</div>
+          <div class="htbar-div"></div>
+          <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Family Owned</div>
+          <div class="htbar-div"></div>
+          <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>5.0 Stars Google</div>
+          <div class="htbar-div"></div>
+          <div class="htbar-item"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Woodburn, OR</div>
+        </div>
+      </div>
+      <div class="hqcard">
+        <div class="hqcard-head"><h3>Get a Free Estimate</h3><p>Painting &middot; Construction &middot; Interior &amp; Exterior</p></div>
+        <div class="hqcard-body">
+          <form onsubmit="handleForm(event,this,'hs1')">
+            <div class="fg"><label>Your Name</label><input type="text" placeholder="Your name" required/></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(971) 000-0000" required/></div>
+            <div class="fg"><label>Service Needed</label>
+              <select required><option value="" disabled selected>Select a service...</option>
+                <option>Interior Painting</option><option>Exterior Painting</option>
+                <option>Commercial Painting</option><option>Residential Construction</option>
+                <option>Drywall &amp; Repair</option><option>Deck &amp; Fence Staining</option>
+                <option>Cabinet Painting</option><option>New Construction</option>
+                <option>Remodeling</option><option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label>City / Area</label><input type="text" placeholder="Woodburn, OR"/></div>
+            <button type="submit" class="btn btn-apple btn-full">Send My Request &rarr;</button>
+            <div class="success-msg" id="hs1">Sent! Marco will reach out shortly.</div>
+          </form>
+          <p class="hqcard-note">Free estimate &middot; No obligation &middot; Fast response</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-bottom">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:50px;"><path d="M0,60 L0,38 L120,18 L240,38 L360,12 L480,36 L600,8 L720,32 L840,12 L960,34 L1080,14 L1200,36 L1320,20 L1440,34 L1440,60 Z" fill="var(--off)"/></svg>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container"><div class="trust-inner">
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span class="t-text">Licensed &amp; Insured</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="t-text">5.0 Stars Google</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span class="t-text">Family Owned &middot; 20+ Years</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><span class="t-text">Residential &amp; Commercial</span></div>
+    <div class="t-div"></div>
+    <div class="t-item"><div class="t-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><span class="t-text">Woodburn &amp; Greater Oregon</span></div>
+  </div></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Interior Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Exterior Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Commercial Projects</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Residential Construction</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Drywall &amp; Repair</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Deck Staining</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Cabinet Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">New Construction</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Interior Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Exterior Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Commercial Projects</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Residential Construction</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Drywall &amp; Repair</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Deck Staining</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">Cabinet Painting</span></div>
+    <div class="marquee-item"><span class="mbl">&#9670;</span><span class="marquee-text">New Construction</span></div>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<div class="expertise-strip">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px;" class="reveal">
+      <span class="lbl lbl-w">Why Woodburn Trusts Apple</span>
+      <h2 class="sec-title sec-title-w" style="font-family:'Playfair Display',serif;">Built on <em style="color:var(--apple-lt);">Craft</em></h2>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-block reveal"><div class="exp-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="exp-title">Painting Specialists</div><div class="exp-desc">Interior, exterior, commercial, residential. Clean prep, premium materials, and a finish that turns heads every time.</div></div>
+      <div class="exp-block reveal"><div class="exp-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="exp-title">Construction Experts</div><div class="exp-desc">From remodels to new builds. Marco and team bring the same precision to every phase of construction as they do to every wall.</div></div>
+      <div class="exp-block reveal"><div class="exp-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="exp-title">Family Owned</div><div class="exp-desc">Marco Antonio built this company on integrity. Every project treated like family. Results that exceed what you imagined.</div></div>
+      <div class="exp-block reveal"><div class="exp-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="exp-title">5.0 Star Reputation</div><div class="exp-desc">Woodburn's most trusted painting and construction company. Perfect reviews, loyal repeat clients, word-of-mouth growth.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- OFFERS -->
+<section class="sec sec-cream" id="offers">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl-c lbl">Limited Time</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">Current <em class="ac">Offers</em></h2>
+      <p class="sec-sub">No surprise fees. Marco comes to your property, walks the project with you, and gives you a straight honest quote.</p>
+    </div>
+    <div class="offers-grid reveal">
+      <div class="offer-card">
+        <div class="offer-tag"><span class="offer-save">$150 Off</span><span class="offer-label">Save</span></div>
+        <div class="offer-body">
+          <div class="offer-title">Full Interior Painting Package</div>
+          <ul class="offer-list"><li>Full room prep, tape, and drop cloths</li><li>Premium paint and materials included</li><li>Clean work area left spotless daily</li><li>Free color consultation with Marco</li></ul>
+          <a href="#contact" class="btn btn-apple btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Sat. Mention this offer when booking.</div>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag"><span class="offer-save">Free</span><span class="offer-label">Inspection</span></div>
+        <div class="offer-body">
+          <div class="offer-title">Exterior Painting + Free Surface Inspection</div>
+          <ul class="offer-list"><li>Full exterior surface walkthrough included</li><li>Pressure wash prep before painting</li><li>Premium exterior paint, weather-resistant finish</li><li>Trim and accent colors matched perfectly</li></ul>
+          <a href="#contact" class="btn btn-apple btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Sat. Mention this offer when booking.</div>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tag"><span class="offer-save">$200 Off</span><span class="offer-label">Save</span></div>
+        <div class="offer-body">
+          <div class="offer-title">Remodeling or Construction Project</div>
+          <ul class="offer-list"><li>New construction or full remodel scoping</li><li>Detailed written estimate with no surprises</li><li>Drywall, framing, finishing all in-house</li><li>Combined painting and build savings available</li></ul>
+          <a href="#contact" class="btn btn-apple btn-full">Get a Free Quote</a>
+          <div class="offer-cta" style="margin-top:12px;">Valid Mon-Sat. Mention this offer when booking.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec sec-off" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl">What We Do</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">Our <em class="ac">Services</em></h2>
+      <p class="sec-sub">From a single room refresh to a full commercial buildout, Apple Painting and Construction delivers craftsmanship you can see and quality that lasts.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card featured">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1604087959761-97857e5d4a98?w=1400&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-tag">Top Service</div>
+        <div class="svc-content">
+          <div class="svc-num">01</div>
+          <div class="svc-name">Interior &amp; Exterior Painting</div>
+          <p class="svc-desc">Woodburn's go-to painting contractor. Marco's team does thorough prep, uses premium materials, and delivers a finish that exceeds expectations every time. Residential and commercial.</p>
+          <a href="#contact" class="svc-link">Get a Quote &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-content"><div class="svc-num">02</div><div class="svc-name">Construction &amp; Remodeling</div><p class="svc-desc">Full residential and commercial construction services. Remodels, additions, new builds. Quality framing, finishing, and project management.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-content"><div class="svc-num">03</div><div class="svc-name">Drywall &amp; Plaster</div><p class="svc-desc">Drywall installation, repair, and finishing done clean and smooth. Patch work to full room installations. Seamless results ready to paint.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-content"><div class="svc-num">04</div><div class="svc-name">Cabinet Painting</div><p class="svc-desc">Transform your kitchen or bathroom cabinets without the cost of replacement. Factory-smooth finish, durable coatings, and a result that looks brand new.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=800&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-content"><div class="svc-num">05</div><div class="svc-name">Deck &amp; Fence Staining</div><p class="svc-desc">Protect and beautify your outdoor wood. Pressure washed, prepped, stained, and sealed. Extends life and curb appeal for years to come.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+        <div class="svc-ov"></div>
+        <div class="svc-content"><div class="svc-num">06</div><div class="svc-name">Commercial Painting</div><p class="svc-desc">Offices, retail, warehouses, and multi-unit properties. Apple delivers on time, on budget, and with minimal disruption to your business.</p><a href="#contact" class="svc-link">Get a Quote &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SERVICES LIST -->
+<section class="sec sec-dark" style="padding:64px 0;">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:34px;">
+      <span class="lbl lbl-w">Full Scope</span>
+      <h2 class="sec-title sec-title-w" style="font-family:'Playfair Display',serif;">Everything We <em style="color:var(--apple-lt);">Handle</em></h2>
+    </div>
+    <div class="svc-list-grid reveal">
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><span class="svc-list-name">Interior Painting</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="svc-list-name">Exterior Painting</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><span class="svc-list-name">Commercial Painting</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><span class="svc-list-name">Residential Construction</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><span class="svc-list-name">Drywall Installation &amp; Repair</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><span class="svc-list-name">Cabinet Painting &amp; Refinishing</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22V12M12 12L6 6M12 12l6-6M2 20h20"/></svg></div><span class="svc-list-name">Deck &amp; Fence Staining</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span class="svc-list-name">New Construction Painting</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span class="svc-list-name">Remodeling &amp; Renovations</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M6.268 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2.268"/></svg></div><span class="svc-list-name">Pressure Washing &amp; Prep</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div><span class="svc-list-name">Texture &amp; Finish Work</span></div>
+      <div class="svc-list-item"><div class="svc-list-icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><span class="svc-list-name">Multi-Unit &amp; HOA Projects</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GRID -->
+<section class="sec sec-cream2" style="padding:64px 0;">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:28px;">
+      <span class="lbl">Real Work</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">Painting <em class="ac">Done Right</em></h2>
+    </div>
+    <div class="photo-grid reveal">
+      <div class="photo-tile tall">
+        <img src="https://images.unsplash.com/photo-1604087959761-97857e5d4a98?w=600&q=80" alt="Interior painting Woodburn OR" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'"/>
+        <div class="photo-tile-label">Interior Painting</div>
+      </div>
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" alt="Exterior house painting" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'"/>
+        <div class="photo-tile-label">Exterior Painting</div>
+      </div>
+      <div class="photo-tile">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Cabinet painting refinishing" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'"/>
+        <div class="photo-tile-label">Cabinet Refinishing</div>
+      </div>
+      <div class="photo-tile tall">
+        <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80" alt="Deck staining wood" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'"/>
+        <div class="photo-tile-label">Deck Staining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec sec-off" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl">Real Clients</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">What People <em class="ac">Are Saying</em></h2>
+      <p class="sec-sub">Five stars across the board in Woodburn and beyond. Marco's team delivers results that speak for themselves.</p>
+    </div>
+    <div class="rating-bar reveal">
+      <div class="rating-big">5.0</div>
+      <div>
+        <div class="rating-stars-row"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <div class="rat-p"><span class="rat-badge">Google Reviews</span><span class="rat-badge">5.0 Stars</span><span class="rat-badge">Family Owned</span></div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-top:6px;">Apple Painting and Construction LLC &middot; Woodburn, OR</div>
+      </div>
+      <div class="rat-right">Verified</div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"Helped me work on a project, quality work, very professional and great price. Would not hesitate to hire again. Marco and his team are the real deal."</p>
+        <div class="review-author"><div class="rav rav-a">JM</div><div><div class="review-name">Jose M.</div><div class="review-meta">Interior Painting</div><div class="review-source">Google</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"We had an amazing experience with this painting company! Extremely professional from start to finish and the quality of work was outstanding. Our home looks brand new."</p>
+        <div class="review-author"><div class="rav rav-g">SM</div><div><div class="review-name">Sarah M.</div><div class="review-meta">Full Home Exterior</div><div class="review-source">Google</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"The finish result was even better than I expected. Marco came out the same day for an estimate, his guys were clean and respectful, and the job was done ahead of schedule."</p>
+        <div class="review-author"><div class="rav rav-f">RG</div><div><div class="review-name">Roberto G.</div><div class="review-meta">Interior &amp; Drywall</div><div class="review-source">Google</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"Hired Apple for a commercial repaint of our office. Marco was easy to communicate with, gave us a fair price, and his crew worked efficiently after hours so we weren't disrupted."</p>
+        <div class="review-author"><div class="rav rav-w">TL</div><div><div class="review-name">Tom L.</div><div class="review-meta">Commercial Painting</div><div class="review-source">Google</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"Marco did our entire kitchen cabinet repaint and the results blew us away. Looks completely custom. Way cheaper than replacement and the quality is incredible."</p>
+        <div class="review-author"><div class="rav rav-a">AL</div><div><div class="review-name">Amanda L.</div><div class="review-meta">Cabinet Painting</div><div class="review-source">Google</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+        <p class="review-text">"Full exterior paint plus new deck staining. Everything was done with care, on schedule, and within budget. The house looks better than the day we bought it. Marco is the real deal."</p>
+        <div class="review-author"><div class="rav rav-g">CH</div><div><div class="review-name">Carlos H.</div><div class="review-meta">Exterior + Deck</div><div class="review-source">Google</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec sec-white" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-accent"></div>
+        <div class="about-img-frame">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Apple Painting and Construction team Woodburn Oregon"/>
+        </div>
+        <div class="about-badge"><span>5.0&#9733;</span><small>Perfect Reviews</small></div>
+      </div>
+      <div class="reveal">
+        <span class="lbl">About Apple</span>
+        <h2 class="about-title">Craftsmanship<br><em class="ac">You Can</em><br><span class="ag">See.</span></h2>
+        <p class="about-body">Apple Painting and Construction LLC is a family-owned company built on over 20 years of hands-on experience in Woodburn, Oregon. Founded and led by Marco Antonio, the company has grown into one of the most trusted names in painting and construction in the region.</p>
+        <p class="about-body">Our approach is simple: exceptional craftsmanship, honest communication, and a commitment to exceeding what our clients expect. Whether painting a single room or managing a full construction project, Marco's team brings the same level of care and skill to every job.</p>
+        <div style="display:flex;flex-wrap:wrap;margin-bottom:18px;">
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>5.0 Google Reviews</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>20+ Years Experience</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Licensed &amp; Insured</span></div>
+          <div class="about-award"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Woodburn, OR Trusted</span></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num">20+</span><span class="stat-lbl">Years Experience</span></div>
+          <div class="stat"><span class="stat-num">5.0</span><span class="stat-lbl">Star Rating</span></div>
+          <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Satisfaction</span></div>
+        </div>
+        <div class="pills">
+          <span class="pill">Interior Painting</span><span class="pill">Exterior Painting</span>
+          <span class="pill">Commercial</span><span class="pill">Cabinet Painting</span>
+          <span class="pill">Construction</span><span class="pill">Drywall Repair</span>
+          <span class="pill">Deck Staining</span><span class="pill">New Builds</span>
+        </div>
+        <a href="#contact" class="btn btn-apple">Get a Free Estimate &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec sec-dark" style="padding:72px 0;">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:40px;">
+      <span class="lbl lbl-w">Who We Are</span>
+      <h2 class="sec-title sec-title-w" style="font-family:'Playfair Display',serif;">Trusted <em style="color:var(--apple-lt);">Professionals</em></h2>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-card"><div class="value-card-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="value-card-title">Customer First, Always</div><div class="value-card-body">Marco's reputation is built on one principle: the client's vision matters. Clear communication, transparent pricing, and results that make homeowners proud.</div></div>
+      <div class="value-card"><div class="value-card-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="value-card-title">Exceptional Craftsmanship</div><div class="value-card-body">Twenty years of skill behind every brushstroke and every build. We don't rush. We don't cut corners. We do it right and we do it to last.</div></div>
+      <div class="value-card"><div class="value-card-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="value-card-title">Family Owned Business</div><div class="value-card-body">Marco Antonio leads every job with integrity. No sub-contractors you don't know. No bait-and-switch. Just honest work and a name you can trust in Woodburn.</div></div>
+      <div class="value-card"><div class="value-card-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="value-card-title">On Time, Every Time</div><div class="value-card-body">Accurate estimates, reliable scheduling, and work sites left clean every day. You know what to expect and you can count on Apple to deliver.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-cream" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl">Got Questions?</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">Frequently <em class="ac">Asked</em></h2>
+      <p class="sec-sub">Answers before you call. Still have questions? Marco is happy to walk through your project anytime.</p>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What services does Apple Painting and Construction offer?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">We offer a full range of painting and construction services including interior and exterior painting, cabinet painting, deck and fence staining, drywall installation and repair, remodeling, new construction, and commercial painting. If your project involves paint, drywall, or building, Apple can handle it from start to finish.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does an interior painting project take?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">It depends on the size of the project. A single room can often be completed in a day. A full home interior typically takes 3 to 5 days depending on prep work, number of rooms, and finish details. Marco will give you a realistic timeline during your free estimate.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you provide free estimates?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Yes, always. Marco comes to your property, walks the project with you, and gives you a written estimate with no obligation. No service call fees, no surprise costs. You'll know exactly what you're getting before any work begins.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are you licensed and insured?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Yes. Apple Painting and Construction LLC is fully licensed and insured in Oregon. You're protected on every job. We carry general liability and our crew is covered so you have zero exposure on your property.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you do commercial painting jobs?</span><div class="faq-icon"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></div><div class="faq-a">Yes. Apple works with commercial clients including offices, retail spaces, warehouses, and multi-unit properties. We schedule around your business hours and deliver clean, professional results without disrupting your operation.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="sec sec-off" id="areas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="lbl">Where We Work</span>
+      <h2 class="sec-title" style="font-family:'Playfair Display',serif;">Service <em class="ac">Areas</em></h2>
+      <p class="sec-sub">Apple Painting and Construction serves homeowners and businesses throughout the Willamette Valley. A few of the cities we cover:</p>
+    </div>
+    <div class="areas-grid reveal">
+      <div class="area-tag">Woodburn, OR</div><div class="area-tag">Salem, OR</div><div class="area-tag">Portland, OR</div><div class="area-tag">Canby, OR</div><div class="area-tag">Silverton, OR</div>
+      <div class="area-tag">Hubbard, OR</div><div class="area-tag">Molalla, OR</div><div class="area-tag">Donald, OR</div><div class="area-tag">Mt. Angel, OR</div><div class="area-tag">Keizer, OR</div>
+      <div class="area-tag">Newberg, OR</div><div class="area-tag">Wilsonville, OR</div><div class="area-tag">Tualatin, OR</div><div class="area-tag">Lake Oswego, OR</div><div class="area-tag">Gervais, OR</div>
+      <div class="area-tag">Aurora, OR</div><div class="area-tag">Stayton, OR</div><div class="area-tag">Aumsville, OR</div><div class="area-tag">Jefferson, OR</div><div class="area-tag">And More</div>
+    </div>
+    <div style="text-align:center;margin-top:30px;">
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">Not seeing your city? Call us. We likely cover your area.</p>
+      <a href="#contact" class="btn btn-apple">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sec-cream2" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="lbl">Get Started</span>
+        <h2 class="contact-title">Get Your<br><em class="ac">Free</em><br><span class="ag">Estimate</span></h2>
+        <p class="contact-body">Ready to transform your space? Fill out the form and Marco will get back to you fast. Most projects scheduled within the week.</p>
+        <div class="ci">
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val">(971) 455-8005</div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-lbl">Address</div><div class="ci-val">720 E Lincoln St, Woodburn, OR 97071</div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-lbl">Hours</div><div class="ci-val">Mon-Sat, 7am-5pm</div></div></div>
+          <div class="ci-row"><div class="ci-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><div class="ci-lbl">Reviews</div><div class="ci-val">5.0 Stars &middot; Google Reviews</div></div></div>
+        </div>
+      </div>
+      <div class="cform reveal">
+        <div class="cform-head"><h3>Request a Free Estimate</h3><p>Fast response &middot; No obligation &middot; Marco responds direct</p></div>
+        <div class="cform-body">
+          <form onsubmit="handleForm(event,this,'cs1')">
+            <div class="row2">
+              <div class="est-fg"><label>First Name</label><input type="text" placeholder="First" required/></div>
+              <div class="est-fg"><label>Last Name</label><input type="text" placeholder="Last" required/></div>
+            </div>
+            <div class="row2">
+              <div class="est-fg"><label>Phone</label><input type="tel" placeholder="(971) 000-0000" required/></div>
+              <div class="est-fg"><label>Email</label><input type="email" placeholder="you@email.com"/></div>
+            </div>
+            <div class="est-fg"><label>Service Needed</label>
+              <select required><option value="" disabled selected>Select a service...</option>
+                <option>Interior Painting</option><option>Exterior Painting</option>
+                <option>Cabinet Painting</option><option>Commercial Painting</option>
+                <option>Deck &amp; Fence Staining</option><option>Drywall &amp; Repair</option>
+                <option>Remodeling</option><option>New Construction</option>
+                <option>Multi-Unit Project</option><option>Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="row2">
+              <div class="est-fg"><label>City</label><input type="text" placeholder="Woodburn, OR"/></div>
+              <div class="est-fg"><label>Best Date</label><input type="date"/></div>
+            </div>
+            <div class="est-fg"><label>Tell Us What You Need</label><textarea placeholder="Project details, timeline, any questions for Marco..."></textarea></div>
+            <button type="submit" class="btn btn-apple btn-full">Send My Request &rarr;</button>
+            <div class="success-msg" id="cs1">Sent! Marco will be in touch soon.</div>
+          </form>
+          <p class="form-note">Free estimate &middot; Fast response &middot; No obligation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="container">
+    <div class="footer-cta-inner">
+      <div class="footer-cta-txt"><h4>Ready to Get Started?</h4><p>Free estimate &middot; Family owned &middot; Woodburn, OR</p></div>
+      <div class="footer-cta-btns">
+        <a href="tel:9714558005" class="btn btn-apple">Call (971) 455-8005</a>
+        <a href="#contact" class="btn btn-outline-c">Get Free Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Apple Painting &amp; Construction</div>
+          <div class="footer-brand-sub">Woodburn, OR &middot; Licensed &amp; Insured &middot; Family Owned</div>
+          <p class="footer-desc">Full service painting and construction contractor. Interior, exterior, commercial, residential. 20+ years of craftsmanship in Woodburn and throughout Oregon's Willamette Valley.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Interior Painting</a></li>
+            <li><a href="#services">Exterior Painting</a></li>
+            <li><a href="#services">Commercial Painting</a></li>
+            <li><a href="#services">Cabinet Painting</a></li>
+            <li><a href="#services">Construction &amp; Remodeling</a></li>
+            <li><a href="#services">Deck Staining</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Apple</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#areas">Service Areas</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-contacts">
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 5.72 5.72l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(971) 455-8005</span></li>
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>720 E Lincoln St, Woodburn, OR 97071</span></li>
+            <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon-Sat, 7am-5pm</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Apple Painting and Construction LLC. All rights reserved. Woodburn, OR.</p>
+        <span class="footer-dev">Live Demo &middot; Built by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">ContractorArsenal.com</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lbOverlay" onclick="closeLb(event)">
+  <div class="lb-box" id="lbBox">
+    <button class="lb-close" onclick="closeLb()">&times;</button>
+    <img id="lbImg" src="" alt=""/>
+    <div class="lb-info"><h4 id="lbTitle"></h4><p id="lbDesc"></p></div>
+  </div>
+</div>
+
+<script>
+// Float CTA
+var hero=document.getElementById('hero'),floatCta=document.getElementById('floatCta');
+var floatDismissed=false,bubbleShown=false,bubbleIdx=0;
+var bubbleMsgs=['Free painting estimates!','20+ years of craftsmanship','5.0 stars across the board','Marco responds fast','Woodburn\'s trusted painters'];
+window.addEventListener('scroll',function(){
+  if(floatDismissed)return;
+  var past=hero.getBoundingClientRect().bottom<0;
+  if(past){floatCta.classList.add('vis');if(!bubbleShown)setTimeout(showBubble,800);}
+  else{floatCta.classList.remove('vis');}
+},{passive:true});
+function showBubble(){
+  var b=document.getElementById('floatBubble');
+  if(!b||floatDismissed)return;
+  b.style.display='';
+  setTimeout(function(){b.classList.add('show');},20);
+  if(!bubbleShown){
+    bubbleShown=true;
+    setInterval(function(){
+      if(floatDismissed)return;
+      var msg=document.getElementById('bubbleMsg'),b2=document.getElementById('floatBubble');
+      if(!msg||!b2)return;
+      b2.classList.remove('show');
+      setTimeout(function(){bubbleIdx=(bubbleIdx+1)%bubbleMsgs.length;msg.innerHTML=bubbleMsgs[bubbleIdx];b2.classList.add('show');},350);
+    },4000);
+  }
+  setTimeout(function(){if(floatDismissed)return;var b3=document.getElementById('floatBubble');if(b3){b3.classList.remove('show');setTimeout(function(){b3.style.display='none';},400);}},12000);
+}
+function hideBubble(){var b=document.getElementById('floatBubble');if(b){b.classList.remove('show');setTimeout(function(){b.style.display='none';},350);}}
+function dismissFloat(){floatDismissed=true;hideBubble();setTimeout(function(){floatCta.classList.remove('vis');},400);}
+
+// Hamburger
+var ham=document.getElementById('hamburger'),drawer=document.getElementById('drawer'),dclose=document.getElementById('drawerClose');
+ham.addEventListener('click',function(){
+  drawer.classList.add('open');document.body.style.overflow='hidden';
+  var sp=ham.querySelectorAll('span');
+  sp[0].style.transform='rotate(45deg) translate(5px,5px)';sp[1].style.opacity='0';sp[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+});
+dclose.addEventListener('click',closeDrawer);
+function closeDrawer(){drawer.classList.remove('open');document.body.style.overflow='';ham.querySelectorAll('span').forEach(function(s){s.style.transform='';s.style.opacity='';});}
+
+// Forms
+function handleForm(e,form,sid){
+  e.preventDefault();
+  var btn=form.querySelector('button[type="submit"]'),orig=btn.innerHTML;
+  btn.innerHTML='Sending...';btn.disabled=true;
+  setTimeout(function(){
+    btn.innerHTML='Sent! Marco will be in touch.';btn.style.background='var(--ink)';btn.style.color='#fff';
+    var s=document.getElementById(sid);if(s)s.style.display='block';
+    form.reset();
+    setTimeout(function(){btn.innerHTML=orig;btn.style.background='';btn.style.color='';btn.disabled=false;if(s)s.style.display='none';},5000);
+  },1100);
+}
+
+// FAQ
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item'),wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen)item.classList.add('open');
+}
+
+// Lightbox
+function openLb(el){
+  var img=el.querySelector('img'),h4=el.querySelector('.gallery-caption h4'),p=el.querySelector('.gallery-caption p');
+  if(!img)return;
+  document.getElementById('lbImg').src=img.src;
+  document.getElementById('lbImg').alt=img.alt;
+  document.getElementById('lbTitle').textContent=h4?h4.textContent:'';
+  document.getElementById('lbDesc').textContent=p?p.textContent:'';
+  document.getElementById('lbOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(e){
+  if(e&&e.target!==document.getElementById('lbOverlay')&&!e.target.classList.contains('lb-close'))return;
+  document.getElementById('lbOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+
+// Scroll reveal
+document.body.classList.add('js-loaded');
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
